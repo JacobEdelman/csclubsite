@@ -4,9 +4,6 @@ var renderSettings = function(req, res, next, oauthMessage) {
   var outcome = {};
 
   var getAccountData = function(callback) {
-    //Functionally, it's the same as calling:
-    //UserModel.findOne({_id: id}, function (err, user) { ... });
-    //now find by username instead in other doc.... similar to what I do below I suppose...except just get name,company,phone,zip but then change the stuff
     req.app.db.models.Account.findById(req.user.roles.account.id, 'name company phone zip').exec(function(err, account) {
       if (err) {
         return callback(err, null);

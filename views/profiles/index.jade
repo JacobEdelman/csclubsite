@@ -1,0 +1,11 @@
+extends ../../layouts/account
+
+block head
+  title Profile of #{username}
+
+block neck
+  link(rel='stylesheet', href='/views/account/index.min.css?#{cacheBreaker}')
+block body
+  h1 #{username}
+  br
+  h2 Email: #{email}
